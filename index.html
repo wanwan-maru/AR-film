@@ -1,8 +1,13 @@
 <!doctype html>
 <html>
     <head>
+        <!-- A-Frame ライブラリの読み込み ※GIFはV0.9.0から -->
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <!-- AR.js ライブラリの読み込み -->
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <!-- shader ライブラリの読み込み -->
+        <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+        
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
@@ -16,6 +21,7 @@
             embedded
             gesture-detector
         >
+            <!-- ここにAR Markerの設定を入れる。urlでフォルダ内の.pattファイルを指定している -->
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -26,6 +32,7 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
+                <!-- ここにAR Markerに対応する画像を設定する。srcでフォルダ内の画像ファイルを指定している -->
                 <a-image
                     src="assets/asset.gif"
                     scale="1 1 1"
