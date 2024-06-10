@@ -7,25 +7,20 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <!-- shader ライブラリの読み込み https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js -->
         <script src="https://raw.githack.com/wanwan-maru/ags-fork/master/dist/aframe-gif-shader.min.js"></script>
-        
+
+        <!-- gesture ライブラリの読み込み 指で表示画像の大きさを変更できる -->
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
-        <a-scene
+        <a-scene embedded
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
-            embedded
             gesture-detector
         >
-            <!-- assets -->
-            <a-assets>
-                <img id="mano" src="assets/asset.gif">       
-            </a-assets>
-            
+
             <!-- ここにAR Markerの設定を入れる。urlでフォルダ内の.pattファイルを指定している -->
             <a-marker
                 type="pattern" preset="custom" url="assets/patternFilm.patt"
@@ -35,7 +30,7 @@
             >
                     <!-- ここに表示するgif情報を入れている -->
                     <a-entity
-                        geometry="primitive:plane;" material="shader:gif; src:#mano;"
+                        geometry="primitive:plane;" material="shader:gif; src:url(assets/asset.gif);"
                         rotation="-90 0 0" scale="3 3 3"
                         gesture-handler class="clickable"
                     ></a-entity>
