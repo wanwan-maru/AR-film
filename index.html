@@ -20,17 +20,30 @@
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             gesture-detector
         >
-
-            <!-- ここにAR Markerの設定を入れる。urlでフォルダ内の.pattファイルを指定している -->
+            <!-- AR Marker1 -->
             <a-marker
-                type="pattern" preset="custom" url="assets/patternFilm.patt"
+                type="pattern" preset="custom" url="assets/markerAR.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
             >
-                    <!-- ここに表示するgif情報を入れている -->
+                <!-- Marker1による表示 -->
+                <a-image
+                    src="assets/HCG01.png"
+                    rotation="-90 0 0" scale="2 2 2" position="0 0 0">
+                </a-image>
+            </a-marker>
+            
+            <!-- AR Marker2 -->
+            <a-marker
+                type="pattern" preset="custom" url="assets/markerMN.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                    <!-- Marker2による表示 -->
                     <a-entity
-                        geometry="primitive:plane;" material="shader:gif; src:url(assets/asset.gif);"
+                        geometry="primitive:plane;" material="shader:gif; src:url(assets/kantoku.gif);"
                         rotation="-90 0 0" scale="3 3 3"
                         gesture-handler class="clickable"
                     ></a-entity>
