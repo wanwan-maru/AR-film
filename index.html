@@ -5,12 +5,8 @@
         <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
         <!-- AR.js ライブラリの読み込み -->
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <!-- shader ライブラリの読み込み https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js -->
+        <!-- shader ライブラリの読み込み -->
         <script src="https://raw.githack.com/wanwan-maru/ags-fork/master/dist/aframe-gif-shader.min.js"></script>
-
-        <!-- gesture ライブラリの読み込み 指で表示画像の大きさを変更できる -->
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -18,34 +14,30 @@
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            gesture-detector
         >
             <!-- AR Marker1 -->
             <a-marker
                 type="pattern" preset="custom" url="assets/markerHCG.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
             >
                 <!-- Marker1による表示 -->
                 <a-image
-                    src="assets/HCG01.png"
+                    src="assets/HCG-kh.png"
                     rotation="-90 0 0" scale="2 2 2" position="0 0 0">
+                    <a-image
+                        src="assets/HCG-mm.png"
+                        scale="1 1 1" position="0 0 -.1">
+                    </a-image>
                 </a-image>
             </a-marker>
             
             <!-- AR Marker2 -->
             <a-marker
                 type="pattern" preset="custom" url="assets/markerMN.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
             >
                     <!-- Marker2による表示 -->
                     <a-entity
                         geometry="primitive:plane;" material="shader:gif; src:url(assets/kantoku.gif);"
                         rotation="-90 0 0" scale="3 3 3"
-                        gesture-handler class="clickable"
                     ></a-entity>
             </a-marker>
 
